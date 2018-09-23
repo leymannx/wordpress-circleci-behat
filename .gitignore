@@ -1,0 +1,7 @@
+/.idea
+/bin
+/uploads
+/vendor
+/web
+/wp-vendor
+/wp-config/wp-config.php

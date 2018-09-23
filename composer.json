@@ -1,0 +1,66 @@
+{
+    "name": "leymannx/wordpress-project",
+    "description": "Project template for WordPress projects with composer",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "",
+            "role": ""
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "bin-dir": "bin/"
+    },
+    "require": {
+        "johnpbloch/wordpress-core": "~4.9",
+        "leymannx/wordpress-finder": "^0.0.14",
+        "oomphinc/composer-installers-extender": "^1.1",
+        "wp-cli/wp-cli-bundle": "^2.0"
+    },
+    "require-dev": {
+        "behat/mink-goutte-driver": "^1.2",
+        "behat/mink-selenium2-driver": "^1.3",
+        "paulgibbs/behat-wordpress-extension": "^0.7.1"
+    },
+    "extra": {
+        "installer-types": [
+            "wordpress-core",
+            "wordpress-plugin",
+            "wordpress-theme",
+            "wordpress-muplugin",
+            "wordpress-dropin"
+        ],
+        "installer-paths": {
+            "web/": ["type:wordpress-core"],
+            "wp-vendor/plugins/{$name}/": ["type:wordpress-plugin"],
+            "wp-vendor/themes/{$name}/": ["type:wordpress-theme"],
+            "wp-vendor/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+            "wp-vendor/{$name}/": ["type:wordpress-dropin"]
+        }
+    },
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ]
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "WordpressProject\\composer\\ScriptHandler::CreateRequiredFiles",
+            "WordpressProject\\composer\\ScriptHandler::CreateSymlinks"
+        ],
+        "post-update-cmd": [
+            "WordpressProject\\composer\\ScriptHandler::CreateRequiredFiles",
+            "WordpressProject\\composer\\ScriptHandler::CreateSymlinks"
+        ]
+    }
+}
