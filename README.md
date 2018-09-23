@@ -1,5 +1,5 @@
-# Composer Template for WordPress Projects
+# WordPress CircleCI Behat
 
-```
-composer create-project leymannx/wordpress-project some-dir --stability dev --no-interaction
-```
+[![CircleCI](https://circleci.com/gh/leymannx/wordpress-circleci-behat/tree/master.svg?style=svg)](https://circleci.com/gh/leymannx/wordpress-circleci-behat/tree/master)
+
+Based on [leymannx/wordpress-project](https://github.com/leymannx/wordpress-project)
